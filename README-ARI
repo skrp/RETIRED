@@ -1,0 +1,38 @@
+######################
+# ARI - ASCII regex aI
+#   ---__m_oo_m__---
+# add a learning mechanism to the program
+# in that it gets stronger how it is used
+# it caches what users ask to respond quicker
+# that cache + down-time-tracking
+achieve {
+  index => library,
+  encode => # all encoding with the code to read it
+}
+aI {
+  regex => analytics,
+  interpreter => UTF8,
+  cache => access,
+  personality => response,
+  socket => external,
+  file => internal,
+  emo => structures,
+  face => reaction,
+};
+adventure {
+  # interact with a user
+}
+kash {
+  adventure => cache,
+  regex => cache,
+  personality => cache,
+  socket => cache,
+  file => cache,
+}
+internal {
+  past_state => log,
+  workload => log,
+  current_state => log,
+  analytics => log,
+  external_awareness => log,
+}
