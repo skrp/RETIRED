@@ -1,0 +1,36 @@
+######################
+# Default Local Screen
+
+1:
+(Column 1)           (Column 2)
+top                   HIVE
+ps                    rsh
+w                     mail
+irc
+
+2:
+(Column 1)           (Column 2)
+irc                  irc
+
+3:
+(Column 1)           (Column 2)
+vim                  vim
+
+4:
+(Column 1)           (Column 2)
+rsh                  rsh
+
+5:
+(Column 1)           (Column 2)
+mail                 logs
+
+6:
+(Column 1)           (Column 2)
+top                  ps
+
+7:
+(Column 1)           (Column 2)
+zfs_stat             iostat
+
+8:
+(Column 1)           (Column 2)
