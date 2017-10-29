@@ -1,0 +1,58 @@
+#!/bin/sh
+######################
+# HUBBUB - ftpd config
+
+# STEPS #############
+# 1) format drive
+# 2) fstab drive
+# 3) setup anony-only ftpd
+# 4) setup ftp user
+# 5) setup ftp location
+
+# 1 #################
+sysctl hw.disknames; #find drive name
+drive=; #set drive name
+dmesg | grep $drive; # confirm drive
+disklabel $drive;
+newfs $drive;
+
+# 2 #################
+drive=$drive"c";
+echo '/dev/$drive /ftp rw 1 1' >> /etc/fstab;
+
+# 3 #################
+echo 'ftpd_flags=-A' >> /etc/rc.conf.local;
+
+# 4 #################
+adduser;
+# > ftp
+# >
+# > nologin
+# > 3001
+# > ftp
+# > no
+# > default
+# > 
+# > y
+usermod -d /ftp ftp;
+rm -r /home/ftp;
+
+# 5 #################
+mkdir /ftp;
+chown root /ftp;
+chmod 555 /ftp;
+mkdir /ftp/etc;
+chown root /ftp/etc;
+chmod 511 /ftp/etc;
+echo 'Meri Kann cibR punX\npedrk.com' > /ftp/etc/motd;
+chown root /ftp/etc/motd;
+chmod 444 /ftp/etc/motd;
+mkdir /ftp/pub;
+chown root /ftp/pub;
+chmod 555 /ftp/pub;
+mkdir /ftp/pub/mkrx; # deposit only
+chown root /ftp/pub/mkrx;
+chmod 333 /ftp/pub/mkrx;
+mkdir /ftp/pub/all; # everyone
+chown ftp:ftp /ftp/pub/all;
+chmod 777 /ftp/pub/all;
